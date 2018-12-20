@@ -8,8 +8,8 @@ Front end implementation for a newsletter sign up form with validation and styli
 
 ### To Start the program:
 - clone project
-- $ yarn install
-- $ yarn start
+- $ yarn install or $ npm install
+- $ yarn start or $ npm start
 
 ### Components:
 - Newsletter Signup Container
