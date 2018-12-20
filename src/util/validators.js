@@ -1,5 +1,4 @@
 export const emailValidator = (val) => {
-  // simple regex since there is already a confirmation email sent to verify the email
   const isValid = /.+@.+\..+/i
           .test(val);
   const isEmpty = !minLengthValidator(val, 1);
