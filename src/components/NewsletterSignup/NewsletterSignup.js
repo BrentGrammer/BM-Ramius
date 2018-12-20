@@ -13,7 +13,6 @@ class NewsletterSignup extends Component {
   }
 
   onSignupFormSubmit = () => {
-    console.log('submit from parent fired')
     this.setState({ formSubmitted: true });
   };
 

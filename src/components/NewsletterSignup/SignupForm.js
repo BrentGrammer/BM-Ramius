@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import { 
+  trimFormValues, 
+  firstNameValidator, 
+  lastNameValidator, 
+  emailValidator,
+  validateFields 
+} from '../../util/validators';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -7,15 +14,19 @@ class SignupForm extends Component {
     this.state = {
       fields: {
         firstName: {
-          value: ''
+          value: '',
+          validationError: ''
         },
         lastName: {
-          value: ''
+          value: '',
+          validationError: ''
         },
         email: {
-          value: ''
+          value: '',
+          validationError: ''
         }
-      }
+      },
+      valid: true
     };
   }
 
@@ -28,7 +39,7 @@ class SignupForm extends Component {
         fields: {
           ...prevState.fields,
           [field]: { 
-            value: value 
+            value: value
           } 
         }
       }; 
@@ -37,17 +48,51 @@ class SignupForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log('form submitted');
-    this.props.onSignupFormSubmit();
+    const { fields } = this.state;
+    const trimmedFormValues = trimFormValues(fields);
+
+    const validators = {
+      firstName: firstNameValidator,
+      lastName: lastNameValidator,
+      email: emailValidator
+    };
+
+    const validation = validateFields(trimmedFormValues, validators);
+
+    if (validation.isValid === false) {
+      const { validationErrors } = validation;
+
+      this.setState({
+        fields: {
+          firstName: {
+            ...this.state.fields.firstName,
+            validationError: validationErrors.firstName
+          },
+          lastName: {
+            ...this.state.fields.lastName,
+            validationError: validationErrors.lastName
+          },
+          email: {
+            ...this.state.fields.email,
+            validationError: validationErrors.email
+          }
+        },
+        valid: false
+      });
+
+      return;
+    } else {
+      this.props.onSignupFormSubmit();
+    }
   };
 
   render() {
-    const { fields } = this.state;
+    const { fields, valid } = this.state;
 
     return (
         <form className="form" onSubmit={this.onSubmit}>
           <div className="form__container--input">
-            <label className="form__label" htmlFor="firstName">First Name:</label> 
+            <label className="form__label" htmlFor="firstName">First Name:</label>
             <input 
               className="form__input"
               type="text"
@@ -58,6 +103,7 @@ class SignupForm extends Component {
               onChange={this.onInputChange}
             />
           </div> 
+          {!valid && <p className="form__message--error">{fields.firstName.validationError}</p>}
           <div className="form__container--input">
             <label className="form__label" htmlFor="lastName">Last Name:</label> 
             <input 
@@ -70,6 +116,7 @@ class SignupForm extends Component {
               onChange={this.onInputChange}
             />
           </div>
+          {!valid && <p className="form__message--error">{fields.lastName.validationError}</p>}
           <div className="form__container--input">
             <label className="form__label" htmlFor="email">Email:</label> 
             <input
@@ -82,6 +129,7 @@ class SignupForm extends Component {
               onChange={this.onInputChange}
             />
           </div>
+          {!valid && <p className="form__message--error">{fields.email.validationError}</p>}
           <button className="form__button--submit" type="submit">Submit</button>
         </form>
     );
