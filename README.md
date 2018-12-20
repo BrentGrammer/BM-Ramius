@@ -6,7 +6,7 @@ Built with React.
 
 Front end implementation for a newsletter sign up form with validation and styling.  
 
-### To Start the program:
+### To Start the dev server:
 - clone project
 - $ yarn install or $ npm install
 - $ yarn start or $ npm start
