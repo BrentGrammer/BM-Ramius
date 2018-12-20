@@ -6,6 +6,11 @@ Built with React.
 
 Front end implementation for a newsletter sign up form.  
 
+### To Start the program:
+- clone project
+- $ yarn install
+- $ yarn start
+
 ### Components:
 - Newsletter Signup Container
 - Signup Form
