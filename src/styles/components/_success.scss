@@ -2,9 +2,17 @@
   font-weight: bold;
   font-style: italic;
   margin: 2em 2em 4em 2em;
+  background: $blue-text-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .success-message__span {
   display: inline-block;
   margin-bottom: 15px;
+  background: $blue-text-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

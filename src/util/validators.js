@@ -3,7 +3,7 @@ export const emailValidator = (val) => {
           .test(val);
   const isEmpty = !minLengthValidator(val, 1);
 
-  if (!isValid && isEmpty) {
+  if (isEmpty) {
     return "Email is required.";
   } 
   if (!isValid && !isEmpty) {
@@ -59,9 +59,6 @@ export const validateFields = (fields, validators) => {
       validationErrors
     }; 
   }
-  return {
-    isValid
-  };
-   
+  return { isValid };
 };
 

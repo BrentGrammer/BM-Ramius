@@ -31,7 +31,7 @@ class SignupForm extends Component {
   }
 
   onInputChange = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
     const field = e.target.name;
 
     this.setState(prevState => {
@@ -90,48 +90,48 @@ class SignupForm extends Component {
     const { fields, valid } = this.state;
 
     return (
-        <form className="form" onSubmit={this.onSubmit}>
-          <div className="form__container--input">
-            <label className="form__label" htmlFor="firstName">First Name:</label>
-            <input 
-              className="form__input"
-              type="text"
-              name="firstName"
-              id="firstName"
-              placeholder="Enter First Name..."
-              value={fields.firstName.value}
-              onChange={this.onInputChange}
-            />
-          </div> 
-          {!valid && <p className="form__message--error">{fields.firstName.validationError}</p>}
-          <div className="form__container--input">
-            <label className="form__label" htmlFor="lastName">Last Name:</label> 
-            <input 
-              className="form__input"
-              type="text"
-              name="lastName"
-              id="lastName"
-              placeholder="Enter Last Name..."
-              value={fields.lastName.value}
-              onChange={this.onInputChange}
-            />
-          </div>
-          {!valid && <p className="form__message--error">{fields.lastName.validationError}</p>}
-          <div className="form__container--input">
-            <label className="form__label" htmlFor="email">Email:</label> 
-            <input
-              className="form__input form__input--email" 
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter Email..."
-              value={fields.email.value}
-              onChange={this.onInputChange}
-            />
-          </div>
-          {!valid && <p className="form__message--error">{fields.email.validationError}</p>}
-          <button className="form__button--submit" type="submit">Submit</button>
-        </form>
+      <form className="form" onSubmit={this.onSubmit}>
+        <div className="form__container--input">
+          <label className="form__label" htmlFor="firstName">First Name:</label>
+          <input 
+            className="form__input"
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="Enter First Name..."
+            value={fields.firstName.value}
+            onChange={this.onInputChange}
+          />
+        </div> 
+        {!valid && <p className="form__message--error">{fields.firstName.validationError}</p>}
+        <div className="form__container--input">
+          <label className="form__label" htmlFor="lastName">Last Name:</label> 
+          <input 
+            className="form__input"
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Enter Last Name..."
+            value={fields.lastName.value}
+            onChange={this.onInputChange}
+          />
+        </div>
+        {!valid && <p className="form__message--error">{fields.lastName.validationError}</p>}
+        <div className="form__container--input">
+          <label className="form__label" htmlFor="email">Email:</label> 
+          <input
+            className="form__input form__input--email" 
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Email..."
+            value={fields.email.value}
+            onChange={this.onInputChange}
+          />
+        </div>
+        {!valid && <p className="form__message--error">{fields.email.validationError}</p>}
+        <button className="form__button--submit" type="submit">Submit</button>
+      </form>
     );
   }
 }
