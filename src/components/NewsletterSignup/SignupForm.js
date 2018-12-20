@@ -65,15 +65,15 @@ class SignupForm extends Component {
       this.setState({
         fields: {
           firstName: {
-            ...this.state.fields.firstName,
+            ...fields.firstName,
             validationError: validationErrors.firstName
           },
           lastName: {
-            ...this.state.fields.lastName,
+            ...fields.lastName,
             validationError: validationErrors.lastName
           },
           email: {
-            ...this.state.fields.email,
+            ...fields.email,
             validationError: validationErrors.email
           }
         },
@@ -81,9 +81,9 @@ class SignupForm extends Component {
       });
 
       return;
-    } else {
-      this.props.onSignupFormSubmit();
     }
+
+    this.props.onSignupFormSubmit();
   };
 
   render() {
