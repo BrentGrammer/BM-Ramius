@@ -37,7 +37,8 @@ class SignupForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log('form submitted')
+    console.log('form submitted');
+    this.props.onSignupFormSubmit();
   };
 
   render() {
@@ -73,7 +74,7 @@ class SignupForm extends Component {
             <label className="form__label" htmlFor="email">Email:</label> 
             <input
               className="form__input form__input--email" 
-              type="text"
+              type="email"
               name="email"
               id="email"
               placeholder="Enter Email..."

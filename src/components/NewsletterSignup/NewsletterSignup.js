@@ -12,15 +12,27 @@ class NewsletterSignup extends Component {
     };
   }
 
+  onSignupFormSubmit = () => {
+    console.log('submit from parent fired')
+    this.setState({ formSubmitted: true });
+  };
+
   render() {
     return (
       <div className="newsletter-signup__container">
         <header className="newsletter-signup__header--container">
           <Logo />
-          <h3 className="newsletter-signup__h3--title">Newsletter Sign-Up</h3>
         </header>
-        <SignupForm />
-        {this.state.formSubmitted && <Success />}
+        <div className="newsletter-signup__wrapper">
+          <h3 className="newsletter-signup__h3--title">
+            {this.state.formSubmitted ? "Success!" : "Newsletter Sign-Up"}
+          </h3>
+          {
+            this.state.formSubmitted 
+              ? <Success />
+              : <SignupForm onSignupFormSubmit={this.onSignupFormSubmit} />
+          }
+        </div>
       </div>
     );
   }

@@ -4,6 +4,16 @@
   width: 100vw;
 }
 
+.newsletter-signup__wrapper {
+  border: 2px solid $light-black;
+  border-radius: 10px;
+  left: 50%;
+  position: absolute;
+  top: 30%;
+  transform: translateX(-50%);
+  width: 450px;
+}
+
 .newsletter-signup__header--container {
   align-content: center;
   display: flex;
@@ -17,4 +27,11 @@
   margin-top: 15px;
   text-transform: uppercase;
   text-align: center;
+}
+
+
+@media (max-width: 500px) {
+  .newsletter-signup__wrapper {
+    width: 90vw;
+  }
 }

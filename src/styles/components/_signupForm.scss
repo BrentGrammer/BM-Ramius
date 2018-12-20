@@ -1,14 +1,7 @@
 .form {
-  border: 2px solid $light-black;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  left: 50%;
-  position: absolute;
-  top: 30%;
-  transform: translateX(-50%);
-  width: 450px;
 }
 
 .form__button--submit {
@@ -16,8 +9,9 @@
   border: 1px solid $blue;
   border-radius: 5px;
   color: white;
-  padding: 10px;
   cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px;
 }
 
 .form__container--input {
@@ -53,11 +47,5 @@
 
   .form__label {
     margin-bottom: 5px;
-  }
-}
-
-@media (max-width: 500px) {
-  .form {
-    width: 350px;
   }
 }
