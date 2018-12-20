@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SignupForm from './SignupForm';
-import Header from './Header';
+import Logo from '../Logo';
 import Success from './Success';
 
 class NewsletterSignup extends Component {
@@ -14,10 +14,10 @@ class NewsletterSignup extends Component {
 
   render() {
     return (
-      <div>
-        <header>
-          <Header />
-          <h3>Newsletter Sign-Up</h3>
+      <div className="newsletter-signup__container">
+        <header className="newsletter-signup__header--container">
+          <Logo />
+          <h3 className="newsletter-signup__h3--title">Newsletter Sign-Up</h3>
         </header>
         <SignupForm />
         {this.state.formSubmitted && <Success />}

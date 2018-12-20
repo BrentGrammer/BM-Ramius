@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import logo from '../../assets/img/logo.svg';
+import logo from '../assets/img/logo.svg';
 
 const Header = props => {
   return (
